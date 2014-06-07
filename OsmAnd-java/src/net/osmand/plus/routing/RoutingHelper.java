@@ -503,10 +503,8 @@ public class RoutingHelper {
 	
 	public String getGeneralRouteInformation(){
 		int dist = getLeftDistance();
-		int hours = getLeftTime() / (60 * 60);
-		int minutes = (getLeftTime() / 60) % 60;
 		return app.getString(R.string.route_general_information, OsmAndFormatter.getFormattedDistance(dist, app),
-				hours, minutes);
+				Algorithms.formatDuration((int) getLeftTime()));
 	}
 	
 	public Location getLocationFromRouteDirection(RouteDirectionInfo i){
